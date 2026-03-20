@@ -24,10 +24,7 @@ fun MessageInput(
         tonalElevation = 2.dp
     ) {
         Row(
-            modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 8.dp)
-                .navigationBarsPadding()
-                .imePadding(),
+            modifier = Modifier.navigationBarsPadding().padding(horizontal = 16.dp, vertical = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             OutlinedTextField(

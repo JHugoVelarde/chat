@@ -29,7 +29,8 @@ fun ConversationScreen(modifier: Modifier = Modifier) {
     }
 
     Scaffold(
-        modifier = modifier.fillMaxSize().statusBarsPadding(),
+        modifier = modifier.fillMaxSize().imePadding(),
+        contentWindowInsets = WindowInsets.systemBars.union(WindowInsets.ime),
         topBar = {
             ConversationTopBar(chatName = "Ana")
         },
@@ -44,11 +45,9 @@ fun ConversationScreen(modifier: Modifier = Modifier) {
     ) { paddingValues ->
         LazyColumn(
             state = listState,
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues),
+            modifier = Modifier.fillMaxSize().padding(paddingValues),
             reverseLayout = true,
-            contentPadding = PaddingValues(vertical = 16.dp)
+            contentPadding = PaddingValues(top = 16.dp, bottom = 8.dp)
         ) {
             items(messages) { message ->
                 ChatBubble(message = message)
